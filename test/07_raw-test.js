@@ -33,7 +33,7 @@ describe('Multipage raw test', function() {
     pdf(pdf_path, options, function (err, text_pages) {
       should.not.exist(err);
       should.exist(text_pages);
-      text_pages.length.should.equal(5, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
+      text_pages.length.should.equal(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
       for (var index in text_pages) {
         var page = text_pages[index];
         page.length.should.be.above(0, 'no text on page at index: ' + index);
