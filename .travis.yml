@@ -4,7 +4,8 @@ before_script:
   - sudo apt-get install -qq tesseract-ocr
   - which tesseract
   - stat ./share/eng.traineddata
-  - locate tesseract
+  - ls /usr/local/share
+  - ls /usr/share
   - cp ./share/eng.traineddata /usr/local/share/tessdata/
   - cp ./share/configs/alphanumeric /usr/local/share/tessdata/configs/alphanumeric
 node_js:
