@@ -2,6 +2,9 @@ language: node_js
 
 before_script:
   - sudo apt-get install -qq tesseract-ocr
+  - which tesseract
+  - stat ./share/eng.traineddata
+  - locate tesseract
   - cp ./share/eng.traineddata /usr/local/share/tessdata/
   - cp ./share/configs/alphanumeric /usr/local/share/tessdata/configs/alphanumeric
 node_js:
