@@ -6,6 +6,7 @@ before_script:
   - which tesseract
   - cat ./share/configs/alphanumeric
   - ls -R /usr/share/tesseract-ocr/
+  - sudo cp ./share/eng.traineddata /usr/share/tesseract-ocr/tessdata/
   - sudo cp ./share/configs/alphanumeric /usr/share/tesseract-ocr/tessdata/configs/alphanumeric
 
 node_js:
