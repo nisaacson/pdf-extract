@@ -1,5 +1,5 @@
 # Node PDF
-[![Build Status](https://travis-ci.org/nisaacs2/pdf-extract.png)](https://travis-ci.org/nisaacs2/pdf-extract)
+[![Build Status](https://travis-ci.org/nisaacson/pdf-extract.png)](https://travis-ci.org/nisaacson/pdf-extract)
 
 Node PDF is a set of tools that takes in PDF files and converts them to usable formats for data processing. The library supports both extracting text from searchable pdf files as well as performing OCR on pdfs which are just scanned images of text
 
