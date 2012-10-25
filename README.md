@@ -72,3 +72,4 @@ To test that your system satisfies the needed dependencies and that module is fu
 cd <project_root>/node_modules/pdf-extract
 npm test
 ```
+
