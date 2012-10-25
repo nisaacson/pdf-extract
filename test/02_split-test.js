@@ -11,9 +11,12 @@ describe('Split Test', function() {
     var file_name = 'multipage_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
-    split(pdf_path, function (err, files) {
+    split(pdf_path, function (err, output) {
       should.not.exist(err);
-      should.exist(files);
+      should.exist(output);
+      output.should.have.property('folder');
+      output.should.have.property('files');
+      var files = output.files;
       files.length.should.equal(8, 'wrong number of pages after splitting searchable pdf with name: ' + file_name);
       // make sure each file entry in files exists
       async.forEach(

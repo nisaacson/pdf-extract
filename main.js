@@ -54,8 +54,7 @@ module.exports = function(pdf_path, options, callback) {
       return raw(pdf_path, options, callback);
     }
     else if (options.type === 'text') {
-      delete options.type;
-      return electronic(pdf_path, options, callback);
+       return electronic(pdf_path, callback);
     }
     else {
       return callback('error, unknown extraction type passed as second paramater. Allowed values are "ocr" or "text"', null);

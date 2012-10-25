@@ -24,7 +24,7 @@ describe('Multipage searchable test', function() {
     var file_name = 'multipage_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
-    pdf(pdf_path, 'text', function (err, text_pages) {
+    pdf(pdf_path, {type: 'text'}, function (err, text_pages) {
       should.not.exist(err);
       should.exist(text_pages);
       text_pages.length.should.equal(8, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
