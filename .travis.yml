@@ -1,10 +1,13 @@
 language: node_js
 
 before_script:
+  - sudo apt-get install -qq pdftk
   - sudo apt-get install -qq tesseract-ocr
   - which tesseract
   - stat ./share/eng.traineddata
-  - ls /usr/local/share
-  - ls /usr/share
+  - ls -R /usr/local/share/tesseract-ocr
+  - cp ./share/eng.traineddata /usr/local/share/tesseract-ocr/tessdata/
+  - cp ./share/configs/alphanumeric /usr/local/share/tesseract-ocr/tessdata/configs/alphanumeric
+
 node_js:
   - "0.8"
