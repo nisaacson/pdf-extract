@@ -1,10 +1,13 @@
 {
-  "name": "node-pdf",
+  "name": "pdf-extract",
+  "engines": "node",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "scripts": {
     "test": "mocha --reporter spec"
   },
+  "main": "main.js",
+  "folders": "lib",
   "dependencies": {
     "eyes": "~0.1.8",
     "async": "~0.1.22",
