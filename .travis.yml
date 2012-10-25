@@ -9,4 +9,3 @@ before_script:
   - cp ./share/configs/alphanumeric /usr/local/share/tessdata/configs/alphanumeric
 node_js:
   - "0.8"
-  - "0.6"
