@@ -6,7 +6,9 @@ before_script:
   - which tesseract
   - cat ./share/configs/alphanumeric
   
-  - ls -R /usr/local/share/
-  
+  - ls -R /usr/share/
+  - cp ./share/eng.traineddata /usr/share/tesseract/tessdata/
+  - cp ./share/configs/alphanumeric /usr/share/tesseract/tessdata/configs/alphanumeric
+
 node_js:
   - "0.8"
