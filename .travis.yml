@@ -5,9 +5,9 @@ before_script:
   - sudo apt-get install -qq tesseract-ocr
   - which tesseract
   - stat ./share/eng.traineddata
-  - ls -R /usr/local/share/tesseract-ocr
-  - cp ./share/eng.traineddata /usr/local/share/tesseract-ocr/tessdata/
-  - cp ./share/configs/alphanumeric /usr/local/share/tesseract-ocr/tessdata/configs/alphanumeric
+  - ls -R /usr/local/share
+  - cp ./share/eng.traineddata /usr/local/share/tesseract/tessdata/
+  - cp ./share/configs/alphanumeric /usr/local/share/tesseract/tessdata/configs/alphanumeric
 
   
 node_js:
