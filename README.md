@@ -23,6 +23,47 @@ cp "lib/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/a
 
 
 ## Usage
+
+### OCR Extract from scanned image
+Extract from a pdf file which contains a scanned image and no searchable text 
+```
+var inspect = require('eyes').inspector({maxLength:20000});
+var pdf_extract = require('pdf-extract');
+var absolute_path_to_pdf = '~/Downloads/sample.pdf'
+var options = {
+  type: 'ocr' // perform ocr to get the text within the scanned image
+}
+pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
+  if (err) {
+    return callback(err);
+  }
+  inspect(text_pages, 'ocr output');
+  callback(null, text_pages);
+});
+```
+
+
+### Text extract from searchable pdf
+Extract from a pdf file which contains actual searchable text 
+```
+var inspect = require('eyes').inspector({maxLength:20000});
+var pdf_extract = require('pdf-extract');
+var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
+var options = {
+  type: 'text'  // extract the actual text in the pdf file
+}
+pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
+  if (err) {
+    return callback(err);
+  }
+  inspect(text_pages, 'extracted text pages');
+  callback(null, text_pages);
+});
+```
+
 ## Tests
-To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command
-`npm test`
+To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder
+```
+cd <project_root>/node_modules/pdf-extract
+npm test
+```
