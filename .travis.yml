@@ -4,9 +4,6 @@ before_script:
   - sudo apt-get install -qq pdftk
   - sudo apt-get install -qq tesseract-ocr
   - sudo apt-get install -qq poppler-utils
-  - which tesseract
-  - cat ./share/configs/alphanumeric
-  - ls -R /usr/share/tesseract-ocr/
   - sudo cp ./share/eng.traineddata /usr/share/tesseract-ocr/tessdata/
   - sudo cp ./share/configs/alphanumeric /usr/share/tesseract-ocr/tessdata/configs/alphanumeric
 

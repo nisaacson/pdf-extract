@@ -4,7 +4,7 @@ var async = require('async');
 var exec = require('child_process').exec;
 
 describe('Command Test', function() {
-  it('should have pdftotext binary on path', function(done) {
+  it('should have convert binary on path', function(done) {
     var cmd = 'which convert';
     var child = exec(cmd, function (err, stdout, stderr) {
       should.not.exist(err, 'convert not available. You will not be able to perform ocr and extract text from pdfs with scanned image. To get convert install GraphicsMagick on your system');

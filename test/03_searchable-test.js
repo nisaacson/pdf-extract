@@ -16,6 +16,7 @@ describe('Searchable Test', function() {
       should.not.exist(err);
       should.exist(extract);
       extract.length.should.be.above(20, 'wrong extract output');
+      done();
     });
   });
 });
