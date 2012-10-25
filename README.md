@@ -13,6 +13,9 @@ On OSX you can get the pdftotext utility via the xpdf forumula in Homebrew
 Check that pdftotext is available
 `which pdftotext`
 
+On Ubuntu you can install the needed binary via the **poppler-utils** library
+`apt-get install poppler-utils`
+
 ### OCR
 For the OCR to work, you need to have the tesseract-ocr binaries available on your path. If you only need to handle ASCII characters, the accuracy of the OCR process can be increased by limiting the tesseract output. To do this copy the included *alphanumeric* file into the *tess-data* folder on your system. 
 
