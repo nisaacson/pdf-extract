@@ -4,7 +4,8 @@ before_script:
   - sudo apt-get install -qq pdftk
   - sudo apt-get install -qq tesseract-ocr
   - which tesseract
-  - stat ./share/eng.traineddata
+  - cat ./share/configs/alphanumeric
+  
   - ls -R /usr/local/share/
   
 node_js:
