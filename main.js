@@ -22,42 +22,52 @@ var walk = require('walk');
 var async = require('async');
 var rimraf = require('rimraf');
 
-var raw = require('./lib/raw');
-var electronic = require('./lib/electronic');
+var Raw = require('./lib/raw');
+var Electronic = require('./lib/electronic');
 
 /**
  * To process a pdf, pass in the absolute path to the pdf file on disk
  *
  * @return {Array} text_pages is an array of strings, where each string is the
  * extracted text for the matching page index in the pdf document
- * @return callback(<error if exists>, text_pages)
+ * @return {Processor} a processor object which will emit events as they occur
  */
-module.exports = function(pdf_path, options, callback) {
+module.exports = function(pdf_path, options) {
+  var err;
+  var processor = new Raw();
   if (!pdf_path) {
-    return callback('error, you must pass a path to pdf file as the first parameter', null);
+    err = 'you must pass a path to pdf file as the first parameter'
+    processor.emit('error', {error: err});
+    return;
   }
   if (!options) {
-    return callback('no options supplied. You must supply an options object with the type field set', null);
+    err =  'no options supplied. You must supply an options object with the type field set'
+    processor.emit('error', {error: err});
+    return null;
   }
   if (!options.hasOwnProperty('type') || ! options.type) {
-    return callback('error, you must specify the type of extraction you wish to perform in the options object. Allowed values are "ocr" or "text"', null);
+    err  ='error, you must specify the type of extraction you wish to perform in the options object. Allowed values are "ocr" or "text"';
+    processor.emit('error', {error: err});
+    return;
   }
-  if (!callback) {
-    return callback('error, no callback provided');
+  if (options.type === 'ocr') {
+    processor = new Raw();
+  }
+  else if (options.type === 'text') {
+    processor = new Electronic();
+  }
+  else {
+    err  ='error, you must specify the type of extraction you wish to perform in the options object. Allowed values are "ocr" or "text"';
+    processor.emit('error', {error: err});
+    return;
   }
   fs.exists(pdf_path, function (exists) {
     if (!exists) {
-      return callback('error, no file exists at the path you specified for the first paramter: ' + pdf_path, null);
+      err = 'no file exists at the path you specified';
+      processor.emit('error', {error: err, pdf_path: pdf_path});
+      return null;
     }
-    if (options.type === 'ocr') {
-      delete options.type;
-      return raw(pdf_path, options, callback);
-    }
-    else if (options.type === 'text') {
-       return electronic(pdf_path, callback);
-    }
-    else {
-      return callback('error, unknown extraction type passed as second paramater. Allowed values are "ocr" or "text"', null);
-    }
+    processor.process(pdf_path, options);
   });
+  return processor;
 }

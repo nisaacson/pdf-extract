@@ -113,6 +113,13 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
 });
 ```
 
+
+### Events
+When processing, the module will emit various events as they occurr
+
+- "page" emitted when a page has completed processing
+- "error" emitted when an error occurs during processing
+- "complete" emitted when all the pages in the pdf have been parsed
 ## Tests
 To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder
 ```

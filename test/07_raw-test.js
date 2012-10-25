@@ -30,7 +30,7 @@ describe('Multipage raw test', function() {
       type: 'ocr',
       quality: 100
     };
-    pdf(pdf_path, options, function (err, text_pages) {
+    var complete_callback = function(err, text_pages) {
       should.not.exist(err);
       should.exist(text_pages);
       text_pages.length.should.equal(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
@@ -38,7 +38,23 @@ describe('Multipage raw test', function() {
         var page = text_pages[index];
         page.length.should.be.above(0, 'no text on page at index: ' + index);
       }
+    }
+    var processor = pdf(pdf_path, options, complete_callback);
+    processor.on('complete', function(data) {
+      data.should.have.property('text_pages');
+      data.should.have.property('pdf_path');
+      data.text_pages.length.should.eql(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
+      page_event_fired.should.be.true;
       done();
+    });
+    var page_event_fired = false;
+    processor.on('page', function(data) {
+      page_event_fired = true;
+      data.should.have.property('index');
+      data.should.have.property('pdf_path');
+      data.should.have.property('text');
+      data.pdf_path.should.eql(pdf_path);
+      data.text.length.should.above(0);
     });
   });
 });
