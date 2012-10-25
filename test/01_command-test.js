@@ -5,6 +5,16 @@ var exec = require('child_process').exec;
 
 describe('Command Test', function() {
   it('should have pdftotext binary on path', function(done) {
+    var cmd = 'which convert';
+    var child = exec(cmd, function (err, stdout, stderr) {
+      should.not.exist(err, 'convert not available. You will not be able to perform ocr and extract text from pdfs with scanned image. To get convert install GraphicsMagick on your system');
+      stderr.length.should.equal(0);
+      should.exist(stdout);
+      stdout.length.should.be.above(8);
+      done();
+    });
+  });
+  it('should have pdftotext binary on path', function(done) {
     var cmd = 'which pdftotext';
     var child = exec(cmd, function (err, stdout, stderr) {
       should.not.exist(err, 'pdftotext not available. You will not be able to extract text from electronic searchable pdf files without the pdftotext library installed on your system');
