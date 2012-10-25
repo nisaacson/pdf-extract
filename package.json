@@ -1,0 +1,17 @@
+{
+  "name": "node-pdf",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "dependencies": {
+    "eyes": "~0.1.8",
+    "async": "~0.1.22",
+    "mocha": "~1.6.0",
+    "should": "~1.2.0",
+    "temp": "~0.4.0",
+    "walk": "~2.2.1",
+    "rimraf": "~2.0.2"
+  }
+}
