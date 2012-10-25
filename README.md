@@ -47,7 +47,6 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
 });
 ```
 
-
 ### Text extract from searchable pdf
 Extract from a pdf file which contains actual searchable text 
 ```
