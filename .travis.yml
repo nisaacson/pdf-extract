@@ -6,7 +6,5 @@ before_script:
   - stat ./share/eng.traineddata
   - ls /usr/local/share
   - ls /usr/share
-  - cp ./share/eng.traineddata /usr/local/share/tessdata/
-  - cp ./share/configs/alphanumeric /usr/local/share/tessdata/configs/alphanumeric
 node_js:
   - "0.8"
