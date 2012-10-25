@@ -9,5 +9,6 @@ before_script:
   - cp ./share/eng.traineddata /usr/local/share/tesseract-ocr/tessdata/
   - cp ./share/configs/alphanumeric /usr/local/share/tesseract-ocr/tessdata/configs/alphanumeric
 
+  
 node_js:
   - "0.8"
