@@ -27,6 +27,11 @@ var Electronic = require('./lib/electronic');
 
 /**
  * To process a pdf, pass in the absolute path to the pdf file on disk
+
+ * @param {Object} params should have the following fields set
+ * @param {String} params.pdf_path the absolute path to the pdf file on disk
+ * @param {Boolean} params.clean true if you want the temporary single page pdfs
+ *   to be removed after text extraction is complete
  *
  * @return {Array} text_pages is an array of strings, where each string is the
  * extracted text for the matching page index in the pdf document
@@ -35,13 +40,14 @@ var Electronic = require('./lib/electronic');
 module.exports = function(pdf_path, options) {
   var err;
   var processor = new Raw();
-  if (!pdf_path) {
-    err = 'you must pass a path to pdf file as the first parameter'
+
+  if (!'pdf_path') {
+    err = 'you must supply a pdf path as the first parameter'
     processor.emit('error', {error: err});
     return;
   }
   if (!options) {
-    err =  'no options supplied. You must supply an options object with the type field set'
+    err =  'no options supplied. You must supply an options object with the "type" field set'
     processor.emit('error', {error: err});
     return null;
   }

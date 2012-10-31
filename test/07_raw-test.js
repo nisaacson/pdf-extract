@@ -28,7 +28,7 @@ describe('Multipage raw test', function() {
     var pdf_path = path.join(__dirname, relative_path);
     var options = {
       type: 'ocr',
-      quality: 100
+      clean: false // keep the temporary single page pdf files
     };
     var complete_callback = function(err, text_pages) {
       should.not.exist(err);
@@ -43,9 +43,22 @@ describe('Multipage raw test', function() {
     processor.on('complete', function(data) {
       data.should.have.property('text_pages');
       data.should.have.property('pdf_path');
+      data.should.have.property('single_page_pdf_file_paths');
       data.text_pages.length.should.eql(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
       page_event_fired.should.be.true;
-      done();
+      async.forEach(
+        data.single_page_pdf_file_paths,
+        function (file_path, cb) {
+          fs.exists(file_path, function (exists) {
+            exists.should.be.true;
+            cb();
+          });
+        },
+        function (err) {
+          should.not.exist(err, 'error in raw processing: ' + err);
+          done();
+        }
+      );
     });
     var page_event_fired = false;
     processor.on('page', function(data) {

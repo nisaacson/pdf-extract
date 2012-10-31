@@ -117,9 +117,44 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
 ### Events
 When processing, the module will emit various events as they occurr
 
-- "page" emitted when a page has completed processing
-- "error" emitted when an error occurs during processing
-- "complete" emitted when all the pages in the pdf have been parsed
+**page**
+Emitted when a page has completed processing. The data passed with this event looks like
+```
+var data = {
+  text: <extracted text here>,
+  index: 2,
+  num_pages: 4,
+  pdf_path: "~/Downloads/input_pdf_file.pdf",
+  single_page_pdf_path: "/tmp/temp_pdf_file2.pdf"
+}
+```
+
+**error**
+Emitted when an error occurs during processing. After this event is emitted processing will stop.
+The data passed with this event looks like
+```
+var data = {
+  error: 'no file exists at the path you specified',
+  pdf_path: "~/Downloads/input_pdf_file.pdf",
+}
+```
+
+**page**
+Emitted when all pages have completed processing and the pdf extraction is complete
+```
+var data = {
+  text_pages: <Array of Strings, one per page>,
+  pdf_path: "~/Downloads/input_pdf_file.pdf",
+  single_page_pdf_file_paths: [
+    "/tmp/temp_pdf_file1.pdf",
+    "/tmp/temp_pdf_file2.pdf",
+    "/tmp/temp_pdf_file3.pdf",
+    "/tmp/temp_pdf_file4.pdf",
+  ]
+}
+```
+
+
 ## Tests
 To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder
 ```
