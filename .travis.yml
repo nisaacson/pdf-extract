@@ -1,6 +1,7 @@
 language: node_js
 
 before_script:
+  - sudo apt-get install -qq ghostscript
   - sudo apt-get install -qq pdftk
   - sudo apt-get install -qq tesseract-ocr
   - sudo apt-get install -qq poppler-utils
