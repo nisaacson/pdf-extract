@@ -4,7 +4,7 @@ Node PDF is a set of tools that takes in PDF files and converts them to usable f
 [![Build Status](https://travis-ci.org/nisaacson/pdf-extract.png)](https://travis-ci.org/nisaacson/pdf-extract)
 
 ## Installation
---------------------
+=======
 To begin install the module.
 `npm install pdf-extract`
 After the library is installed you will need the following binaries accessible on your path to process pdfs.
@@ -79,7 +79,7 @@ cp "lib/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/a
 Not yet tested. If you figure out how to use pdf-extract on windows send me a pull request and I will update the readme accordingly
 
 ## Usage
---------------------
+=======
 
 ### OCR Extract from scanned image
 Extract from a pdf file which contains a scanned image and no searchable text 
@@ -160,7 +160,7 @@ var data = {
 
 
 ## Tests
---------------------
+=======
 To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder
 ```
 cd <project_root>/node_modules/pdf-extract
