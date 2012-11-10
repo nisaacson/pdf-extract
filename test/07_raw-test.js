@@ -29,7 +29,7 @@ describe('Multipage raw test', function() {
 
   it('should extract array of text pages from multipage raw scan pdf', function(done) {
     console.log();
-    inspect('Please be patient, this make take a minute or more to complete');
+    inspect('Please be patient, this test make take a minute or more to complete');
     this.timeout(120*1000);
     var complete_callback = function(err, text_pages) {
       should.not.exist(err);
@@ -79,6 +79,9 @@ describe('Multipage raw test', function() {
       '-l dia',
       'alphanumeric'
     ];
+
+    inspect('Please be patient, this test make take a minute or more to complete');
+    
     options.ocr_flags = ocr_flags;
     var processor = pdf(pdf_path, options);
     processor.on('error', function (data){
