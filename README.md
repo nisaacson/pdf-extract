@@ -177,7 +177,7 @@ var data = {
 ```
 
 **log**
-To avoid spamming process.stdout, log events are emitted instead
+To avoid spamming process.stdout, log events are emitted instead. 
 
 ## Tests
 =======
