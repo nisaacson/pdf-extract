@@ -99,6 +99,8 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
 });
 ```
 
+
+
 ### Text extract from searchable pdf
 Extract from a pdf file which contains actual searchable text 
 ``` javascript
@@ -115,6 +117,22 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
   inspect(text_pages, 'extracted text pages');
   callback(null, text_pages);
 });
+```
+#### Options
+At a minimum you must specific the type of pdf extract you wish to perform
+
+**clean**
+When the system performs extracts text from a multi-page pdf, it first splits the pdf into single pages. This are written to disk before the ocr occurs. For some applications these single page files can be useful. If you need to work with the single page pdf files after the ocr is complete, set the **clean** option to **false** as show below. Note that the single page pdf files are written to the system appropriate temp directory, so if you must copy the files to a more permanent location yourself after the ocr process completes
+``` javascript
+var options = {
+  type: 'ocr' // (required), perform ocr to get the text within the scanned image
+  clean: false // keep the single page pdfs created during the ocr process
+  ocr_flags: [
+    '-psm 1',       // automatically detect page orientation
+    '-l dia',       // use a custom language file
+    'alphanumeric'  // only output ascii characters
+  ]
+}
 ```
 
 
@@ -158,6 +176,8 @@ var data = {
 }
 ```
 
+**log**
+To avoid spamming process.stdout, log events are emitted instead
 
 ## Tests
 =======

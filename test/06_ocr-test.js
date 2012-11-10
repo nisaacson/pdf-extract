@@ -20,5 +20,27 @@ describe('OCR Test', function() {
       });
     });
   });
+
+  it('should ocr tif file using custom language file', function(done) {
+    this.timeout(10*1000);
+    var file_name = 'single_page_raw.tif';
+    var relative_path = path.join('test_data',file_name);
+    var tif_path = path.join(__dirname, relative_path);
+    fs.exists(tif_path, function (exists) {
+      exists.should.be.true;
+      var options = [
+        'psm 1',
+        '-l dia',
+        'alphanumeric'
+      ]
+      ocr(tif_path, options, function (err, extract) {
+        should.not.exist(err);
+        should.exist(extract);
+        extract.length.should.be.above(20, 'wrong ocr output');
+        done();
+      });
+    });
+  });
+
 });
 

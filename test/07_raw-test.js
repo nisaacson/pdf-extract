@@ -19,17 +19,18 @@ var get_desired_text = function(text_file_name, callback) {
   });
 }
 describe('Multipage raw test', function() {
+  var file_name = 'multipage_raw.pdf';
+  var relative_path = path.join('test_data',file_name);
+  var pdf_path = path.join(__dirname, relative_path);
+  var options = {
+    type: 'ocr',
+    clean: false // keep the temporary single page pdf files
+  };
+
   it('should extract array of text pages from multipage raw scan pdf', function(done) {
     console.log();
     inspect('Please be patient, this make take a minute or more to complete');
     this.timeout(120*1000);
-    var file_name = 'multipage_raw.pdf';
-    var relative_path = path.join('test_data',file_name);
-    var pdf_path = path.join(__dirname, relative_path);
-    var options = {
-      type: 'ocr',
-      clean: false // keep the temporary single page pdf files
-    };
     var complete_callback = function(err, text_pages) {
       should.not.exist(err);
       should.exist(text_pages);
@@ -70,5 +71,39 @@ describe('Multipage raw test', function() {
       data.text.length.should.above(0);
     });
   });
-});
 
+  it('should ocr raw scan using custom language in ocr_flags', function (done) {
+    this.timeout(40*1000);
+    var ocr_flags = [
+      '-psm 1',
+      '-l dia',
+      'alphanumeric'
+    ];
+    options.ocr_flags = ocr_flags;
+    var processor = pdf(pdf_path, options);
+    processor.on('error', function (data){
+      inspect(data,' error in raw ocr processing');
+      false.should.be.true;
+    });
+    
+    processor.on('complete', function (data) {
+      data.should.have.property('text_pages');
+      data.should.have.property('pdf_path');
+      data.should.have.property('single_page_pdf_file_paths');
+      data.text_pages.length.should.eql(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
+      async.forEach(
+        data.single_page_pdf_file_paths,
+        function (file_path, cb) {
+          fs.exists(file_path, function (exists) {
+            exists.should.be.true;
+            cb();
+          });
+        },
+        function (err) {
+          should.not.exist(err, 'error in raw processing: ' + err);
+          done();
+        }
+      );
+    });
+  });
+});
