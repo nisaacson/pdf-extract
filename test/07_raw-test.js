@@ -61,6 +61,9 @@ describe('Multipage raw test', function() {
         }
       );
     });
+    processor.on('log', function(data) {
+      inspect(data, 'log data');
+    });
     var page_event_fired = false;
     processor.on('page', function(data) {
       page_event_fired = true;
