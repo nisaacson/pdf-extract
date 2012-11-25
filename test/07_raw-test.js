@@ -81,14 +81,17 @@ describe('Multipage raw test', function() {
     ];
 
     inspect('Please be patient, this test make take a minute or more to complete');
-    
+
     options.ocr_flags = ocr_flags;
     var processor = pdf(pdf_path, options);
     processor.on('error', function (data){
       inspect(data,' error in raw ocr processing');
       false.should.be.true;
     });
-    
+    processor.on('log', function(data) {
+      inspect(data, 'log event');
+    });
+
     processor.on('complete', function (data) {
       data.should.have.property('text_pages');
       data.should.have.property('pdf_path');
