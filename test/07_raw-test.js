@@ -28,20 +28,12 @@ describe('07 Multipage raw test', function() {
   };
 
   it('should extract array of text pages from multipage raw scan pdf', function(done) {
-    console.log();
-    inspect('Please be patient, this test make take a minute or more to complete');
+    console.log('\nPlease be patient, this test make take a minute or more to complete');
     this.timeout(240*1000);
     this.slow(120*1000);
-    var complete_callback = function(err, text_pages) {
+    var processor = pdf(pdf_path, options, function (err) {
       should.not.exist(err);
-      should.exist(text_pages);
-      text_pages.length.should.equal(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      for (var index in text_pages) {
-        var page = text_pages[index];
-        page.length.should.be.above(0, 'no text on page at index: ' + index);
-      }
-    }
-    var processor = pdf(pdf_path, options, complete_callback);
+    });
     processor.on('complete', function(data) {
       data.should.have.property('text_pages');
       data.should.have.property('pdf_path');
@@ -88,7 +80,9 @@ describe('07 Multipage raw test', function() {
     inspect('Please be patient, this test make take a minute or more to complete');
 
     options.ocr_flags = ocr_flags;
-    var processor = pdf(pdf_path, options);
+    var processor = pdf(pdf_path, options, function (err) {
+      should.not.exist(err);
+    });
     processor.on('error', function (data){
       inspect(data,' error in raw ocr processing');
       false.should.be.true;

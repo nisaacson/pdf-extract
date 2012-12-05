@@ -18,84 +18,35 @@ var get_desired_text = function(text_file_name, callback) {
     return callback(err, reply);
   });
 }
-describe('04-1 Multipage searchable test', function() {
+describe('04 Multipage searchable test', function() {
   it('should extract array of text pages from multipage  searchable pdf', function(done) {
     this.timeout(10*1000);
     this.slow(2*1000);
     var file_name = 'multipage_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
-
-    var complete_callback = function(err, text_pages) {
-      should.not.exist(err);
-      should.exist(text_pages);
-      text_pages.length.should.equal(8, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      for (var index in text_pages) {
-        var page = text_pages[index];
-        page.length.should.be.above(0, 'no text on page at index: ' + index);
-      }
-    }
     var options = {
       type: 'text',
     };
-    var processor = pdf(pdf_path, options);
+    var processor = pdf(pdf_path, options, function (err) {
+      should.not.exist(err);
+    });
+
     processor.on('complete', function(data) {
       data.should.have.property('text_pages');
       data.should.have.property('pdf_path');
       data.text_pages.length.should.equal(8, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
       page_event_fired.should.be.true;
-      done();
-    });
-    var page_event_fired = false;
-    processor.on('error', function(data) {
-      false.should.be.true('error occurred during processing');
-    });
-
-    processor.on('page', function(data) {
-      page_event_fired = true;
-      data.should.have.property('index');
-      data.should.have.property('pdf_path');
-      data.should.have.property('text');
-      data.pdf_path.should.eql(pdf_path);
-      data.text.length.should.above(0);
-    });
-  });
-});
-
-
-describe('04-2 Single page searchable test', function() {
-  it('should extract array of text pages with a single entry from a single page searchable pdf', function(done) {
-    this.timeout(10*1000);
-    this.slow(2*1000);
-    var file_name = 'single_page_searchable.pdf';
-    var relative_path = path.join('test_data',file_name);
-    var pdf_path = path.join(__dirname, relative_path);
-
-    var complete_callback = function(err, text_pages) {
-      should.not.exist(err);
-      should.exist(text_pages);
-      text_pages.length.should.equal(1, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      for (var index in text_pages) {
-        var page = text_pages[index];
+      for (var index in data.text_pages) {
+        var page = data.text_pages[index];
         page.length.should.be.above(0, 'no text on page at index: ' + index);
       }
-    }
-    var options = {
-      type: 'text',
-    };
-    var processor = pdf(pdf_path, options);
-    processor.on('complete', function(data) {
-      data.should.have.property('text_pages');
-      data.should.have.property('pdf_path');
-      data.text_pages.length.should.equal(1, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      page_event_fired.should.be.true;
       done();
     });
     var page_event_fired = false;
     processor.on('error', function(data) {
       false.should.be.true('error occurred during processing');
     });
-
     processor.on('page', function(data) {
       page_event_fired = true;
       data.should.have.property('index');

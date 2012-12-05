@@ -126,12 +126,19 @@ var absolute_path_to_pdf = '~/Downloads/sample.pdf'
 var options = {
   type: 'ocr' // perform ocr to get the text within the scanned image
 }
-pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
+
+var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
   if (err) {
     return callback(err);
   }
-  inspect(text_pages, 'ocr output');
+});
+processor.on('complete', function(data) {
+  inspect(data.text_pages, 'extracted text pages');
   callback(null, text_pages);
+});
+processor.on('error', function(err) {
+  inspect(err, 'error while extracting pages');
+  return callback(err);
 });
 ```
 
@@ -146,13 +153,20 @@ var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
 var options = {
   type: 'text'  // extract the actual text in the pdf file
 }
-pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
+var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
   if (err) {
     return callback(err);
   }
-  inspect(text_pages, 'extracted text pages');
+});
+processor.on('complete', function(data) {
+  inspect(data.text_pages, 'extracted text pages');
   callback(null, text_pages);
 });
+processor.on('error', function(err) {
+  inspect(err, 'error while extracting pages');
+  return callback(err);
+});
+
 ```
 #### Options
 At a minimum you must specific the type of pdf extract you wish to perform

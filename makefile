@@ -1,4 +1,4 @@
 test:
-    mocha --reporter spec
+	mocha --reporter spec
 
 .PHONY: test

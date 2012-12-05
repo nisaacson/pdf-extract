@@ -4,18 +4,42 @@ var should = require('should');
 var fs = require('fs');
 var async = require('async');
 
-var searchable = require('../lib/searchable.js');
+var pdf = require('../main');
 
 describe('03 Searchable Test', function() {
+  var file_name = 'single_page_searchable.pdf';
+  var relative_path = path.join('test_data',file_name);
+  var pdf_path = path.join(__dirname, relative_path);
+  it('should return an error when not passing a type for a searchable pdf', function(done) {
+    this.timeout(10*1000);
+    this.slow(5*1000);
+    var options = {
+    }
+    pdf(pdf_path, options, function (err, extract) {
+      should.exist(err,'error should be returned');
+      should.not.exist(extract);
+      done();
+    });
+  });
+
   it('should extract text from electronic searchable pdf', function(done) {
     this.timeout(10*1000);
-    var file_name = 'single_page_searchable.pdf';
-    var relative_path = path.join('test_data',file_name);
-    var pdf_path = path.join(__dirname, relative_path);
-    searchable(pdf_path, function (err, extract) {
+    this.slow(5*1000);
+    var options = {
+      type: 'text'
+    }
+    var processor = pdf(pdf_path, options, function (err) {
       should.not.exist(err);
-      should.exist(extract);
-      extract.length.should.be.above(20, 'wrong extract output');
+    });
+
+    processor.on('error', function (err) {
+      should.not.exist(err);
+      true.should.be.false
+    });
+    processor.on('complete', function (data) {
+      data.should.have.property('text_pages');
+      data.text_pages.length.should.eql(1);
+      data.text_pages[0].length.should.be.above(20);
       done();
     });
   });

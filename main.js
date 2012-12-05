@@ -31,30 +31,26 @@ var Electronic = require('./lib/electronic');
  * @param {Object} params should have the following fields set
  * @param {String} params.pdf_path the absolute path to the pdf file on disk
  * @param {Boolean} params.clean true if you want the temporary single page pdfs
- *   to be removed after text extraction is complete
+ * @param {Boolean} options.type must be either "ocr" or "text"
  *
  * @return {Array} text_pages is an array of strings, where each string is the
  * extracted text for the matching page index in the pdf document
  * @return {Processor} a processor object which will emit events as they occur
  */
-module.exports = function(pdf_path, options) {
+module.exports = function(pdf_path, options, cb) {
   var err;
   var processor = new Raw();
-
   if (!'pdf_path') {
     err = 'you must supply a pdf path as the first parameter'
-    processor.emit('error', {error: err});
-    return;
+    return cb(err);
   }
   if (!options) {
     err =  'no options supplied. You must supply an options object with the "type" field set'
-    processor.emit('error', {error: err});
-    return null;
+    return cb(err);
   }
   if (!options.hasOwnProperty('type') || ! options.type) {
     err  ='error, you must specify the type of extraction you wish to perform in the options object. Allowed values are "ocr" or "text"';
-    processor.emit('error', {error: err});
-    return;
+    return cb(err);
   }
   if (options.type === 'ocr') {
     processor = new Raw();
@@ -64,16 +60,15 @@ module.exports = function(pdf_path, options) {
   }
   else {
     err  ='error, you must specify the type of extraction you wish to perform in the options object. Allowed values are "ocr" or "text"';
-    processor.emit('error', {error: err});
-    return;
+    return cb(err);;
   }
   fs.exists(pdf_path, function (exists) {
     if (!exists) {
       err = 'no file exists at the path you specified';
-      processor.emit('error', {error: err, pdf_path: pdf_path});
-      return null;
+      return cb(err);
     }
     processor.process(pdf_path, options);
+    cb();
   });
   return processor;
 }
