@@ -14,15 +14,15 @@ After the library is installed you will need the following binaries accessible o
 - pdftotext
     - pdftotext is used to extract text out of searchable pdf documents
 - ghostscript
-    - ghostscript is an ocr preprocessor which convert pdfs to tif files for input into tesseract  
+    - ghostscript is an ocr preprocessor which convert pdfs to tif files for input into tesseract
 - tesseract
     - tesseract performs the actual ocr on your scanned images
 
 
 ### OSX
-To begin on OSX, first make sure you have the homebrew package manager installed. 
+To begin on OSX, first make sure you have the homebrew package manager installed.
 
-**pdftk** is not available in Homebrew. However a gui install is available here. 
+**pdftk** is not available in Homebrew. However a gui install is available here.
 [http://www.pdflabs.com/docs/install-pdftk/](http://www.pdflabs.com/docs/install-pdftk/)
 
 **pdftotext** is included as part on the xpdf utilities library. **xpdf** can be installed via homebrew
@@ -62,7 +62,7 @@ apt-get install poppler-utils
 apt-get install ghostscript
 ```
 
-**tesseract** can be installed via apt-get. Note that unlike the osx install the package is called **tesseract-ocr** on Ubuntu, not **tesseract** 
+**tesseract** can be installed via apt-get. Note that unlike the osx install the package is called **tesseract-ocr** on Ubuntu, not **tesseract**
 ``` bash
 apt-get install tesseract-ocr
 ```
@@ -75,6 +75,42 @@ cp "lib/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/a
 ```
 
 
+### SmartOS
+**pdftk** can be installed directly via apt-get
+```bash
+apt-get install pdftk
+```
+
+**pdftotext** is included in the **poppler-utils** library. To installer poppler-utils execute
+``` bash
+apt-get install poppler-utils
+```
+
+**ghostscript** can be install via pkgin. Note you may need to update the pkgin repo to include the additional sources provided by Joyent. Check [http://www.perkin.org.uk/posts/9000-packages-for-smartos-and-illumos.html](http://www.perkin.org.uk/posts/9000-packages-for-smartos-and-illumos.html) for details
+``` bash
+pkgin install ghostscript
+```
+
+**tesseract** can be must be manually downloaded and compiled. You must also install leptonica before installing tesseract. At the time of this writing leptonica is available from [http://www.leptonica.com/download.html](http://www.leptonica.com/download.html), with the latest version tarball available from [http://www.leptonica.com/source/leptonica-1.69.tar.gz](http://www.leptonica.com/source/leptonica-1.69.tar.gz)
+``` bash
+pkgin install autoconf
+wget http://www.leptonica.com/source/leptonica-1.69.tar.gz
+tar -xvzf leptonica-1.69.tar.gz
+cd leptonica-1.69
+./configure
+make
+[sudo] make install
+```
+After installing leptonic move on to tesseract. Tesseract is available from [https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list) with the latest version available from [https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=](https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=)
+``` bash
+wget https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=
+tar -xvzf tesseract-ocr-3.02.02.tar.gz
+cd tesseract-ocr
+./configure
+make
+[sudo] make install
+```
+
 ### Windows
 Not yet tested. If you figure out how to use pdf-extract on windows send me a pull request and I will update the readme accordingly
 
@@ -82,7 +118,7 @@ Not yet tested. If you figure out how to use pdf-extract on windows send me a pu
 =======
 
 ### OCR Extract from scanned image
-Extract from a pdf file which contains a scanned image and no searchable text 
+Extract from a pdf file which contains a scanned image and no searchable text
 ``` javascript
 var inspect = require('eyes').inspector({maxLength:20000});
 var pdf_extract = require('pdf-extract');
@@ -102,7 +138,7 @@ pdf_extract(absolute_path_to_pdf, options, function(err, text_pages) {
 
 
 ### Text extract from searchable pdf
-Extract from a pdf file which contains actual searchable text 
+Extract from a pdf file which contains actual searchable text
 ``` javascript
 var inspect = require('eyes').inspector({maxLength:20000});
 var pdf_extract = require('pdf-extract');
@@ -177,7 +213,7 @@ var data = {
 ```
 
 **log**
-To avoid spamming process.stdout, log events are emitted instead. 
+To avoid spamming process.stdout, log events are emitted instead.
 
 ## Tests
 =======
@@ -186,4 +222,3 @@ To test that your system satisfies the needed dependencies and that module is fu
 cd <project_root>/node_modules/pdf-extract
 npm test
 ```
-

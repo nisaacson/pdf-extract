@@ -5,9 +5,10 @@ var fs = require('fs');
 var async = require('async');
 
 var split = require('../lib/split.js');
-describe('Split Test', function() {
+describe('02 Split Test', function() {
   it('should split multi-page pdf in single page pdf files', function(done) {
     this.timeout(10*1000);
+    this.slow(2*1000);
     var file_name = 'multipage_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
@@ -39,6 +40,7 @@ describe('Split Test', function() {
 
   it('should split single page pdf into a new single page pdf files', function(done) {
     this.timeout(10*1000);
+    this.slow(2*1000);
     var file_name = 'single_page_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);

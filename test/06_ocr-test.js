@@ -4,9 +4,10 @@ var should = require('should');
 var fs = require('fs');
 var ocr = require('../lib/ocr.js');
 
-describe('OCR Test', function() {
+describe('06 OCR Test', function() {
   it('should extract text from tif file via tesseract ocr', function(done) {
-    this.timeout(10*1000);
+    this.timeout(16*1000);
+    this.slow(4*1000);
     var file_name = 'single_page_raw.tif';
     var relative_path = path.join('test_data',file_name);
     var tif_path = path.join(__dirname, relative_path);
@@ -23,6 +24,7 @@ describe('OCR Test', function() {
 
   it('should ocr tif file using custom language file', function(done) {
     this.timeout(10*1000);
+    this.slow(6*1000);
     var file_name = 'single_page_raw.tif';
     var relative_path = path.join('test_data',file_name);
     var tif_path = path.join(__dirname, relative_path);
@@ -43,4 +45,3 @@ describe('OCR Test', function() {
   });
 
 });
-

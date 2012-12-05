@@ -18,9 +18,10 @@ var get_desired_text = function(text_file_name, callback) {
     return callback(err, reply);
   });
 }
-describe('Multipage searchable test', function() {
+describe('04-1 Multipage searchable test', function() {
   it('should extract array of text pages from multipage  searchable pdf', function(done) {
     this.timeout(10*1000);
+    this.slow(2*1000);
     var file_name = 'multipage_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
@@ -49,7 +50,7 @@ describe('Multipage searchable test', function() {
     processor.on('error', function(data) {
       false.should.be.true('error occurred during processing');
     });
-    
+
     processor.on('page', function(data) {
       page_event_fired = true;
       data.should.have.property('index');
@@ -62,9 +63,10 @@ describe('Multipage searchable test', function() {
 });
 
 
-describe('Single page searchable test', function() {
+describe('04-2 Single page searchable test', function() {
   it('should extract array of text pages with a single entry from a single page searchable pdf', function(done) {
     this.timeout(10*1000);
+    this.slow(2*1000);
     var file_name = 'single_page_searchable.pdf';
     var relative_path = path.join('test_data',file_name);
     var pdf_path = path.join(__dirname, relative_path);
@@ -93,7 +95,7 @@ describe('Single page searchable test', function() {
     processor.on('error', function(data) {
       false.should.be.true('error occurred during processing');
     });
-    
+
     processor.on('page', function(data) {
       page_event_fired = true;
       data.should.have.property('index');

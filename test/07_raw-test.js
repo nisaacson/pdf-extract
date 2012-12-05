@@ -18,7 +18,7 @@ var get_desired_text = function(text_file_name, callback) {
     return callback(err, reply);
   });
 }
-describe('Multipage raw test', function() {
+describe('07 Multipage raw test', function() {
   var file_name = 'multipage_raw.pdf';
   var relative_path = path.join('test_data',file_name);
   var pdf_path = path.join(__dirname, relative_path);
@@ -30,7 +30,8 @@ describe('Multipage raw test', function() {
   it('should extract array of text pages from multipage raw scan pdf', function(done) {
     console.log();
     inspect('Please be patient, this test make take a minute or more to complete');
-    this.timeout(120*1000);
+    this.timeout(240*1000);
+    this.slow(120*1000);
     var complete_callback = function(err, text_pages) {
       should.not.exist(err);
       should.exist(text_pages);
@@ -76,7 +77,8 @@ describe('Multipage raw test', function() {
   });
 
   it('should ocr raw scan using custom language in ocr_flags', function (done) {
-    this.timeout(40*1000);
+    this.timeout(240*1000);
+    this.slow(120*1000);
     var ocr_flags = [
       '-psm 1',
       '-l dia',

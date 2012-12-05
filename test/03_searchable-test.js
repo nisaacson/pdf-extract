@@ -6,7 +6,7 @@ var async = require('async');
 
 var searchable = require('../lib/searchable.js');
 
-describe('Searchable Test', function() {
+describe('03 Searchable Test', function() {
   it('should extract text from electronic searchable pdf', function(done) {
     this.timeout(10*1000);
     var file_name = 'single_page_searchable.pdf';
@@ -20,4 +20,3 @@ describe('Searchable Test', function() {
     });
   });
 });
-

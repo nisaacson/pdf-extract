@@ -3,7 +3,7 @@ var should = require('should');
 var async = require('async');
 var exec = require('child_process').exec;
 
-describe('Command Test', function() {
+describe('01 Command Test', function() {
   it('should have ghostscript (gs) binary on path', function(done) {
     var cmd = 'which gs';
     var child = exec(cmd, function (err, stdout, stderr) {
