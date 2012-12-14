@@ -40,9 +40,9 @@ brew install gs
 
 After tesseract is installed you need to install the alphanumeric config and an updated trained data file
 ``` bash
-cd <root of this project>
+cd <root of this module>
 cp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.01/share/tessdata/eng.traineddata"
-cp "lib/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/alphanumeric"
+cp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/alphanumeric"
 ```
 
 
@@ -69,9 +69,9 @@ apt-get install tesseract-ocr
 
 For the OCR to work, you need to have the tesseract-ocr binaries available on your path. If you only need to handle ASCII characters, the accuracy of the OCR process can be increased by limiting the tesseract output. To do this copy the *alphanumeric* file included with this pdf-extract module into the *tess-data* folder on your system. Also the eng.traineddata included with the standard tesseract-ocr package is out of date. This pdf-extract module provides an up-to-date version which you should copy into the appropriate location on your system
 ``` bash
-cd <root of this project>
-cp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.01/share/tessdata/eng.traineddata"
-cp "lib/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/alphanumeric"
+cd <root of this module>
+cp "./share/eng.traineddata" "/usr/share/tesseract-ocr/tessdata/eng.traineddata"
+cp "./share/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alphanumeric"
 ```
 
 
