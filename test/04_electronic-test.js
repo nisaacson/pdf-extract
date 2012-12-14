@@ -34,6 +34,8 @@ describe('04 Multipage searchable test', function() {
 
     processor.on('complete', function(data) {
       data.should.have.property('text_pages');
+      data.should.have.property('single_page_pdf_file_paths');
+      data.single_page_pdf_file_paths.length.should.equal(8,'wrong number of single_page_pdf_file_paths returned');
       data.should.have.property('pdf_path');
       data.text_pages.length.should.equal(8, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
       page_event_fired.should.be.true;
