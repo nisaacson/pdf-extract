@@ -5,7 +5,7 @@ var fs = require('fs');
 var ocr = require('../lib/ocr.js');
 
 describe('06 OCR Test', function() {
-  it('should extract text from tif file via tesseract ocr', function(done) {
+  it.only('should extract text from tif file via tesseract ocr', function(done) {
     this.timeout(16*1000);
     this.slow(4*1000);
     var file_name = 'single_page_raw.tif';
@@ -31,7 +31,7 @@ describe('06 OCR Test', function() {
     fs.exists(tif_path, function (exists) {
       exists.should.be.true;
       var options = [
-        'psm 1',
+        '-psm 1',
         '-l dia',
         'alphanumeric'
       ]
