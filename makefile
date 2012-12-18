@@ -7,4 +7,5 @@ searchable:
 
 ocr:
 	mocha $(shell find test -name "*ocr-test.js") --test --reporter spec
+
 .PHONY: test
