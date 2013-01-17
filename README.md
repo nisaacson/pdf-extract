@@ -193,6 +193,7 @@ When processing, the module will emit various events as they occurr
 Emitted when a page has completed processing. The data passed with this event looks like
 ``` javascript
 var data = {
+  hash: <sha1 hash of the input pdf file here>
   text: <extracted text here>,
   index: 2,
   num_pages: 4,
@@ -215,6 +216,7 @@ var data = {
 Emitted when all pages have completed processing and the pdf extraction is complete
 ```
 var data = {
+  hash: <sha1 hash of the input pdf file here>
   text_pages: <Array of Strings, one per page>,
   pdf_path: "~/Downloads/input_pdf_file.pdf",
   single_page_pdf_file_paths: [

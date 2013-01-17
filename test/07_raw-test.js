@@ -1,6 +1,7 @@
 /**
  * Tests ocr extraction for a multi-page raw scan pdf file
  */
+var assert = require('assert');
 var inspect = require('eyes').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
@@ -8,6 +9,7 @@ var fs = require('fs');
 var async = require('async');
 
 var pdf = require('../main.js');
+var hashAtPath = require('../lib/hashAtPath.js');
 
 var get_desired_text = function(text_file_name, callback) {
   var relative_path = path.join('test_data',text_file_name);
@@ -27,6 +29,16 @@ describe('07 Multipage raw test', function() {
     clean: false // keep the temporary single page pdf files
   };
 
+  var hash;
+  before(function(done) {
+    hashAtPath(pdf_path, function (err, reply) {
+      should.not.exist(err, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. ' + err);
+      should.exist(reply, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. No hash returned from hashDataAtPath');
+      hash = reply;
+      done();
+    });
+  });
+
   it('should extract array of text pages from multipage raw scan pdf', function(done) {
     console.log('\nPlease be patient, this test make take a minute or more to complete');
     this.timeout(240*1000);
@@ -39,12 +51,13 @@ describe('07 Multipage raw test', function() {
       data.should.have.property('pdf_path');
       data.should.have.property('single_page_pdf_file_paths');
       data.text_pages.length.should.eql(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      page_event_fired.should.be.true;
+
+      assert.ok(page_event_fired, 'no "page" event fired');
       async.forEach(
         data.single_page_pdf_file_paths,
         function (file_path, cb) {
           fs.exists(file_path, function (exists) {
-            exists.should.be.true;
+            assert.ok(exists,'no single page pdf file exists at the path: ' + file_path);
             cb();
           });
         },
@@ -83,9 +96,9 @@ describe('07 Multipage raw test', function() {
     var processor = pdf(pdf_path, options, function (err) {
       should.not.exist(err);
     });
-    processor.on('error', function (data){
-      inspect(data,' error in raw ocr processing');
-      false.should.be.true;
+    processor.on('error', function (err){
+      should.not.exist(err);
+      assert.ok(false, 'error during raw processing');
     });
     processor.on('log', function(data) {
       inspect(data, 'log event');
@@ -93,14 +106,18 @@ describe('07 Multipage raw test', function() {
 
     processor.on('complete', function (data) {
       data.should.have.property('text_pages');
+      data.should.have.property('hash');
       data.should.have.property('pdf_path');
       data.should.have.property('single_page_pdf_file_paths');
+      if (hash !== data.hash) {
+        return;
+      }
       data.text_pages.length.should.eql(2, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
       async.forEach(
         data.single_page_pdf_file_paths,
         function (file_path, cb) {
           fs.exists(file_path, function (exists) {
-            exists.should.be.true;
+            assert.ok(exists, 'single page pdf file not found at path: ' + file_path);
             cb();
           });
         },
