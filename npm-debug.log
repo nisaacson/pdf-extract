@@ -1,0 +1,219 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.1.68
+3 info using node@v0.8.11
+4 verbose publish [ '.' ]
+5 verbose read json /users/noah/src/node/pdf/package.json
+6 verbose cache add [ '.', null ]
+7 silly cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { pathname: '.', path: '.', href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/noah/.npm/3a52ce78-.lock
+11 verbose read json package.json
+12 verbose tar pack [ '/var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz',
+12 verbose tar pack   '.' ]
+13 verbose tarball /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz
+14 verbose folder .
+15 info prepublish pdf-extract@0.0.14
+16 silly lockFile 9b954c76-8465-0-25917680677957833-tmp-tgz /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz
+17 verbose lock /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz /Users/noah/.npm/9b954c76-8465-0-25917680677957833-tmp-tgz.lock
+18 silly lockFile 9b954c76-8465-0-25917680677957833-tmp-tgz /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz
+19 verbose tar unpack /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/tmp.tgz
+20 silly lockFile ff233ce8-8465-0-25917680677957833-package /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package
+21 verbose lock /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package /Users/noah/.npm/ff233ce8-8465-0-25917680677957833-package.lock
+22 silly gunzTarPerm modes [ '755', '644' ]
+23 silly gunzTarPerm extractEntry package.json
+24 silly gunzTarPerm extractEntry .npmignore
+25 silly gunzTarPerm extractEntry README.md
+26 silly gunzTarPerm extractEntry main.js
+27 silly gunzTarPerm extractEntry .travis.yml
+28 silly gunzTarPerm extractEntry lib/convert.js
+29 silly gunzTarPerm extractEntry lib/electronic.js
+30 silly gunzTarPerm extractEntry lib/hashAtPath.js
+31 silly gunzTarPerm extractEntry lib/ocr.js
+32 silly gunzTarPerm extractEntry lib/raw.js
+33 silly gunzTarPerm extractEntry lib/searchable.js
+34 silly gunzTarPerm extractEntry lib/split.js
+35 silly gunzTarPerm extractEntry makefile
+36 silly gunzTarPerm extractEntry share/configs/alphanumeric
+37 silly gunzTarPerm extractEntry share/dia.traineddata
+38 silly gunzTarPerm extractEntry share/eng.traineddata
+39 silly gunzTarPerm extractEntry test/01_command-test.js
+40 silly gunzTarPerm extractEntry test/02_split-test.js
+41 silly gunzTarPerm extractEntry test/03_searchable-test.js
+42 silly gunzTarPerm extractEntry test/04_electronic-test.js
+43 silly gunzTarPerm extractEntry test/05_convert-test.js
+44 silly gunzTarPerm extractEntry test/06_ocr-test.js
+45 silly gunzTarPerm extractEntry test/07_raw-test.js
+46 silly gunzTarPerm extractEntry test/test_data/multipage_raw.pdf
+47 silly gunzTarPerm extractEntry test/test_data/multipage_searchable.pdf
+48 silly gunzTarPerm extractEntry test/test_data/single_page_raw.pdf
+49 silly gunzTarPerm extractEntry test/test_data/single_page_raw.tif
+50 silly gunzTarPerm extractEntry test/test_data/single_page_searchable.pdf
+51 silly gunzTarPerm extractEntry test/test_data/single_page_searchable.txt
+52 verbose read json /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package/package.json
+53 silly lockFile ff233ce8-8465-0-25917680677957833-package /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package
+54 verbose from cache /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package/package.json
+55 verbose tar pack [ '/Users/noah/.npm/pdf-extract/0.0.14/package.tgz',
+55 verbose tar pack   '/var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package' ]
+56 verbose tarball /Users/noah/.npm/pdf-extract/0.0.14/package.tgz
+57 verbose folder /var/folders/mt/mffnqyns5v94ykgy2tb9fbd80000gn/T/npm-65226/1358447178465-0.25917680677957833/package
+58 silly lockFile e2a8c486-m-pdf-extract-0-0-14-package-tgz /Users/noah/.npm/pdf-extract/0.0.14/package.tgz
+59 verbose lock /Users/noah/.npm/pdf-extract/0.0.14/package.tgz /Users/noah/.npm/e2a8c486-m-pdf-extract-0-0-14-package-tgz.lock
+60 silly lockFile e2a8c486-m-pdf-extract-0-0-14-package-tgz /Users/noah/.npm/pdf-extract/0.0.14/package.tgz
+61 silly lockFile 3c8cad85-h-npm-pdf-extract-0-0-14-package /Users/noah/.npm/pdf-extract/0.0.14/package
+62 verbose lock /Users/noah/.npm/pdf-extract/0.0.14/package /Users/noah/.npm/3c8cad85-h-npm-pdf-extract-0-0-14-package.lock
+63 silly lockFile 3c8cad85-h-npm-pdf-extract-0-0-14-package /Users/noah/.npm/pdf-extract/0.0.14/package
+64 verbose tar unpack /Users/noah/.npm/pdf-extract/0.0.14/package.tgz
+65 silly lockFile 3c8cad85-h-npm-pdf-extract-0-0-14-package /Users/noah/.npm/pdf-extract/0.0.14/package
+66 verbose lock /Users/noah/.npm/pdf-extract/0.0.14/package /Users/noah/.npm/3c8cad85-h-npm-pdf-extract-0-0-14-package.lock
+67 silly gunzTarPerm modes [ '755', '644' ]
+68 silly gunzTarPerm extractEntry package.json
+69 silly gunzTarPerm extractEntry .npmignore
+70 silly gunzTarPerm extractEntry README.md
+71 silly gunzTarPerm extractEntry main.js
+72 silly gunzTarPerm extractEntry .travis.yml
+73 silly gunzTarPerm extractEntry lib/convert.js
+74 silly gunzTarPerm extractEntry lib/electronic.js
+75 silly gunzTarPerm extractEntry lib/hashAtPath.js
+76 silly gunzTarPerm extractEntry lib/ocr.js
+77 silly gunzTarPerm extractEntry lib/raw.js
+78 silly gunzTarPerm extractEntry lib/searchable.js
+79 silly gunzTarPerm extractEntry lib/split.js
+80 silly gunzTarPerm extractEntry makefile
+81 silly gunzTarPerm extractEntry share/configs/alphanumeric
+82 silly gunzTarPerm extractEntry share/dia.traineddata
+83 silly gunzTarPerm extractEntry share/eng.traineddata
+84 silly gunzTarPerm extractEntry test/01_command-test.js
+85 silly gunzTarPerm extractEntry test/02_split-test.js
+86 silly gunzTarPerm extractEntry test/03_searchable-test.js
+87 silly gunzTarPerm extractEntry test/04_electronic-test.js
+88 silly gunzTarPerm extractEntry test/05_convert-test.js
+89 silly gunzTarPerm extractEntry test/06_ocr-test.js
+90 silly gunzTarPerm extractEntry test/07_raw-test.js
+91 silly gunzTarPerm extractEntry test/test_data/multipage_raw.pdf
+92 silly gunzTarPerm extractEntry test/test_data/multipage_searchable.pdf
+93 silly gunzTarPerm extractEntry test/test_data/single_page_raw.pdf
+94 silly gunzTarPerm extractEntry test/test_data/single_page_raw.tif
+95 silly gunzTarPerm extractEntry test/test_data/single_page_searchable.pdf
+96 silly gunzTarPerm extractEntry test/test_data/single_page_searchable.txt
+97 verbose read json /Users/noah/.npm/pdf-extract/0.0.14/package/package.json
+98 silly lockFile 3c8cad85-h-npm-pdf-extract-0-0-14-package /Users/noah/.npm/pdf-extract/0.0.14/package
+99 silly shasum updated bytes 40960
+100 silly shasum updated bytes 40960
+101 silly shasum updated bytes 40960
+102 silly shasum updated bytes 40960
+103 silly shasum updated bytes 40960
+104 silly shasum updated bytes 40960
+105 silly shasum updated bytes 40960
+106 silly shasum updated bytes 40960
+107 silly shasum updated bytes 40960
+108 silly shasum updated bytes 40960
+109 silly shasum updated bytes 40960
+110 silly shasum updated bytes 40960
+111 silly shasum updated bytes 40960
+112 silly shasum updated bytes 40960
+113 silly shasum updated bytes 40960
+114 silly shasum updated bytes 40960
+115 silly shasum updated bytes 40960
+116 silly shasum updated bytes 40960
+117 silly shasum updated bytes 40960
+118 silly shasum updated bytes 40960
+119 silly shasum updated bytes 40960
+120 silly shasum updated bytes 40960
+121 silly shasum updated bytes 40960
+122 silly shasum updated bytes 40960
+123 silly shasum updated bytes 40960
+124 silly shasum updated bytes 40960
+125 silly shasum updated bytes 40960
+126 silly shasum updated bytes 40960
+127 silly shasum updated bytes 40960
+128 silly shasum updated bytes 40960
+129 silly shasum updated bytes 40960
+130 silly shasum updated bytes 40960
+131 silly shasum updated bytes 40960
+132 silly shasum updated bytes 40960
+133 silly shasum updated bytes 40960
+134 silly shasum updated bytes 40960
+135 silly shasum updated bytes 40960
+136 silly shasum updated bytes 40960
+137 silly shasum updated bytes 40960
+138 silly shasum updated bytes 40960
+139 silly shasum updated bytes 40960
+140 silly shasum updated bytes 40960
+141 silly shasum updated bytes 40960
+142 silly shasum updated bytes 40960
+143 silly shasum updated bytes 40960
+144 silly shasum updated bytes 40960
+145 silly shasum updated bytes 40960
+146 silly shasum updated bytes 40960
+147 silly shasum updated bytes 40960
+148 silly shasum updated bytes 40960
+149 silly shasum updated bytes 40960
+150 silly shasum updated bytes 40960
+151 silly shasum updated bytes 40960
+152 silly shasum updated bytes 40960
+153 silly shasum updated bytes 40960
+154 silly shasum updated bytes 40960
+155 silly shasum updated bytes 40960
+156 silly shasum updated bytes 40960
+157 silly shasum updated bytes 40960
+158 silly shasum updated bytes 40960
+159 silly shasum updated bytes 40960
+160 silly shasum updated bytes 40960
+161 silly shasum updated bytes 40960
+162 silly shasum updated bytes 40960
+163 silly shasum updated bytes 40960
+164 silly shasum updated bytes 11270
+165 info shasum 516a02b27902039994042b121ef1416eb22ca9f3
+165 info shasum /Users/noah/.npm/pdf-extract/0.0.14/package.tgz
+166 verbose from cache /Users/noah/.npm/pdf-extract/0.0.14/package/package.json
+167 verbose chmod /Users/noah/.npm/pdf-extract/0.0.14/package.tgz 644
+168 verbose chown /Users/noah/.npm/pdf-extract/0.0.14/package.tgz [ 501, 20 ]
+169 silly lockFile 3a52ce78- .
+170 silly publish { name: 'pdf-extract',
+170 silly publish   engines: 'node',
+170 silly publish   version: '0.0.14',
+170 silly publish   private: false,
+170 silly publish   scripts: { test: 'mocha --reporter spec' },
+170 silly publish   repository:
+170 silly publish    { type: 'git',
+170 silly publish      url: 'https://github.com/nisaacson/pdf-extract.git' },
+170 silly publish   main: 'main.js',
+170 silly publish   folders: 'lib',
+170 silly publish   dependencies:
+170 silly publish    { eyes: '~0.1.8',
+170 silly publish      async: '~0.1.22',
+170 silly publish      mocha: '~1.6.0',
+170 silly publish      should: '~1.2.0',
+170 silly publish      temp: '~0.4.0',
+170 silly publish      walk: '~2.2.1',
+170 silly publish      rimraf: '~2.0.2' },
+170 silly publish   readme: '# Node PDF\nNode PDF is a set of tools that takes in PDF files and converts them to usable formats for data processing. The library supports both extracting text from searchable pdf files as well as performing OCR on pdfs which are just scanned images of text\n\n[![Build Status](https://travis-ci.org/nisaacson/pdf-extract.png)](https://travis-ci.org/nisaacson/pdf-extract)\n\n## Installation\n=======\nTo begin install the module.\n`npm install pdf-extract`\nAfter the library is installed you will need the following binaries accessible on your path to process pdfs.\n\n- pdftk\n    - pdftk splits multi-page pdf into single pages.\n- pdftotext\n    - pdftotext is used to extract text out of searchable pdf documents\n- ghostscript\n    - ghostscript is an ocr preprocessor which convert pdfs to tif files for input into tesseract\n- tesseract\n    - tesseract performs the actual ocr on your scanned images\n\n\n### OSX\nTo begin on OSX, first make sure you have the homebrew package manager installed.\n\n**pdftk** is not available in Homebrew. However a gui install is available here.\n[http://www.pdflabs.com/docs/install-pdftk/](http://www.pdflabs.com/docs/install-pdftk/)\n\n**pdftotext** is included as part on the xpdf utilities library. **xpdf** can be installed via homebrew\n``` bash\nbrew install xpdf\n```\n\n**ghostscript** can be install via homebrew\n``` bash\nbrew install gs\n```\n\n**tesseract** can be installed via homebrew as well\n`brew install tesseract`\n\nAfter tesseract is installed you need to install the alphanumeric config and an updated trained data file\n``` bash\ncd <root of this module>\ncp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.01/share/tessdata/eng.traineddata"\ncp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/alphanumeric"\n```\n\n\n### Ubuntu\n**pdftk** can be installed directly via apt-get\n```bash\napt-get install pdftk\n```\n\n**pdftotext** is included in the **poppler-utils** library. To installer poppler-utils execute\n``` bash\napt-get install poppler-utils\n```\n\n**ghostscript** can be install via apt-get\n``` bash\napt-get install ghostscript\n```\n\n**tesseract** can be installed via apt-get. Note that unlike the osx install the package is called **tesseract-ocr** on Ubuntu, not **tesseract**\n``` bash\napt-get install tesseract-ocr\n```\n\nFor the OCR to work, you need to have the tesseract-ocr binaries available on your path. If you only need to handle ASCII characters, the accuracy of the OCR process can be increased by limiting the tesseract output. To do this copy the *alphanumeric* file included with this pdf-extract module into the *tess-data* folder on your system. Also the eng.traineddata included with the standard tesseract-ocr package is out of date. This pdf-extract module provides an up-to-date version which you should copy into the appropriate location on your system\n``` bash\ncd <root of this module>\ncp "./share/eng.traineddata" "/usr/share/tesseract-ocr/tessdata/eng.traineddata"\ncp "./share/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alphanumeric"\n```\n\n\n### SmartOS\n**pdftk** can be installed directly via apt-get\n```bash\napt-get install pdftk\n```\n\n**pdftotext** is included in the **poppler-utils** library. To installer poppler-utils execute\n``` bash\napt-get install poppler-utils\n```\n\n**ghostscript** can be install via pkgin. Note you may need to update the pkgin repo to include the additional sources provided by Joyent. Check [http://www.perkin.org.uk/posts/9000-packages-for-smartos-and-illumos.html](http://www.perkin.org.uk/posts/9000-packages-for-smartos-and-illumos.html) for details\n``` bash\npkgin install ghostscript\n```\n\n**tesseract** can be must be manually downloaded and compiled. You must also install leptonica before installing tesseract. At the time of this writing leptonica is available from [http://www.leptonica.com/download.html](http://www.leptonica.com/download.html), with the latest version tarball available from [http://www.leptonica.com/source/leptonica-1.69.tar.gz](http://www.leptonica.com/source/leptonica-1.69.tar.gz)\n``` bash\npkgin install autoconf\nwget http://www.leptonica.com/source/leptonica-1.69.tar.gz\ntar -xvzf leptonica-1.69.tar.gz\ncd leptonica-1.69\n./configure\nmake\n[sudo] make install\n```\nAfter installing leptonic move on to tesseract. Tesseract is available from [https://code.google.com/p/tesseract-ocr/downloads/list](https://code.google.com/p/tesseract-ocr/downloads/list) with the latest version available from [https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=](https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=)\n``` bash\nwget https://code.google.com/p/tesseract-ocr/downloads/detail?name=tesseract-ocr-3.02.02.tar.gz&can=2&q=\ntar -xvzf tesseract-ocr-3.02.02.tar.gz\ncd tesseract-ocr\n./configure\nmake\n[sudo] make install\n```\n\n### Windows\nNot yet tested. If you figure out how to use pdf-extract on windows send me a pull request and I will update the readme accordingly\n\n## Usage\n=======\n\n### OCR Extract from scanned image\nExtract from a pdf file which contains a scanned image and no searchable text\n``` javascript\nvar inspect = require(\'eyes\').inspector({maxLength:20000});\nvar pdf_extract = require(\'pdf-extract\');\nvar absolute_path_to_pdf = \'~/Downloads/sample.pdf\'\nvar options = {\n  type: \'ocr\' // perform ocr to get the text within the scanned image\n}\n\nvar processor = pdf_extract(absolute_path_to_pdf, options, function(err) {\n  if (err) {\n    return callback(err);\n  }\n});\nprocessor.on(\'complete\', function(data) {\n  inspect(data.text_pages, \'extracted text pages\');\n  callback(null, text_pages);\n});\nprocessor.on(\'error\', function(err) {\n  inspect(err, \'error while extracting pages\');\n  return callback(err);\n});\n```\n\n\n\n### Text extract from searchable pdf\nExtract from a pdf file which contains actual searchable text\n``` javascript\nvar inspect = require(\'eyes\').inspector({maxLength:20000});\nvar pdf_extract = require(\'pdf-extract\');\nvar absolute_path_to_pdf = \'~/Downloads/electronic.pdf\'\nvar options = {\n  type: \'text\'  // extract the actual text in the pdf file\n}\nvar processor = pdf_extract(absolute_path_to_pdf, options, function(err) {\n  if (err) {\n    return callback(err);\n  }\n});\nprocessor.on(\'complete\', function(data) {\n  inspect(data.text_pages, \'extracted text pages\');\n  callback(null, text_pages);\n});\nprocessor.on(\'error\', function(err) {\n  inspect(err, \'error while extracting pages\');\n  return callback(err);\n});\n\n```\n#### Options\nAt a minimum you must specific the type of pdf extract you wish to perform\n\n**clean**\nWhen the system performs extracts text from a multi-page pdf, it first splits the pdf into single pages. This are written to disk before the ocr occurs. For some applications these single page files can be useful. If you need to work with the single page pdf files after the ocr is complete, set the **clean** option to **false** as show below. Note that the single page pdf files are written to the system appropriate temp directory, so if you must copy the files to a more permanent location yourself after the ocr process completes\n``` javascript\nvar options = {\n  type: \'ocr\' // (required), perform ocr to get the text within the scanned image\n  clean: false // keep the single page pdfs created during the ocr process\n  ocr_flags: [\n    \'-psm 1\',       // automatically detect page orientation\n    \'-l dia\',       // use a custom language file\n    \'alphanumeric\'  // only output ascii characters\n  ]\n}\n```\n\n\n### Events\nWhen processing, the module will emit various events as they occurr\n\n**page**\nEmitted when a page has completed processing. The data passed with this event looks like\n``` javascript\nvar data = {\n  hash: <sha1 hash of the input pdf file here>\n  text: <extracted text here>,\n  index: 2,\n  num_pages: 4,\n  pdf_path: "~/Downloads/input_pdf_file.pdf",\n  single_page_pdf_path: "/tmp/temp_pdf_file2.pdf"\n}\n```\n\n**error**\nEmitted when an error occurs during processing. After this event is emitted processing will stop.\nThe data passed with this event looks like\n```\nvar data = {\n  error: \'no file exists at the path you specified\',\n  pdf_path: "~/Downloads/input_pdf_file.pdf",\n}\n```\n\n**complete**\nEmitted when all pages have completed processing and the pdf extraction is complete\n```\nvar data = {\n  hash: <sha1 hash of the input pdf file here>\n  text_pages: <Array of Strings, one per page>,\n  pdf_path: "~/Downloads/input_pdf_file.pdf",\n  single_page_pdf_file_paths: [\n    "/tmp/temp_pdf_file1.pdf",\n    "/tmp/temp_pdf_file2.pdf",\n    "/tmp/temp_pdf_file3.pdf",\n    "/tmp/temp_pdf_file4.pdf",\n  ]\n}\n```\n\n**log**\nTo avoid spamming process.stdout, log events are emitted instead.\n\n## Tests\n=======\nTo test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder\n```\ncd <project_root>/node_modules/pdf-extract\nnpm test\n```\n',
+170 silly publish   readmeFilename: 'README.md',
+170 silly publish   _id: 'pdf-extract@0.0.14',
+170 silly publish   description: 'Node PDF is a set of tools that takes in PDF files and converts them to usable formats for data processing. The library supports both extracting text from searchable pdf files as well as performing OCR on pdfs which are just scanned images of text',
+170 silly publish   dist: { shasum: '516a02b27902039994042b121ef1416eb22ca9f3' } }
+171 verbose url raw pdf-extract
+172 verbose url resolving [ 'https://registry.npmjs.org/', './pdf-extract' ]
+173 verbose url resolved https://registry.npmjs.org/pdf-extract
+174 info trying registry request attempt 1 at 13:26:23
+175 http PUT https://registry.npmjs.org/pdf-extract
+176 http 409 https://registry.npmjs.org/pdf-extract
+177 verbose url raw pdf-extract
+178 verbose url resolving [ 'https://registry.npmjs.org/', './pdf-extract' ]
+179 verbose url resolved https://registry.npmjs.org/pdf-extract
+180 info trying registry request attempt 1 at 13:26:25
+181 http GET https://registry.npmjs.org/pdf-extract
+182 http 200 https://registry.npmjs.org/pdf-extract
+183 error publish fail Cannot publish over existing version.
+183 error publish fail Bump the 'version' field, set the --force flag, or
+183 error publish fail     npm unpublish 'pdf-extract@0.0.14'
+183 error publish fail and try again
+184 error System Darwin 11.4.0
+185 error command "node" "/usr/local/bin/npm" "publish"
+186 error cwd /users/noah/src/node/pdf
+187 error node -v v0.8.11
+188 error npm -v 1.1.68
+189 error code EPUBLISHCONFLICT
+190 verbose exit [ 1, true ]
