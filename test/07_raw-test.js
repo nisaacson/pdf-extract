@@ -2,7 +2,7 @@
  * Tests ocr extraction for a multi-page raw scan pdf file
  */
 var assert = require('assert');
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
 var fs = require('fs');

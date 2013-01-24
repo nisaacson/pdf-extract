@@ -1,10 +1,10 @@
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
 var fs = require('fs');
 var assert = require('assert');
 var async = require('async');
-var hashAtPath = require('../lib/hashAtPath.js');
+var pathhash = require('pathhash');
 var pdf = require('../main');
 
 describe('03 Searchable Test', function() {
@@ -13,7 +13,7 @@ describe('03 Searchable Test', function() {
   var pdf_path = path.join(__dirname, relative_path);
   var hash;
   before(function(done) {
-    hashAtPath(pdf_path, function (err, reply) {
+    pathhash(pdf_path, function (err, reply) {
       should.not.exist(err, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. ' + err);
       should.exist(reply, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. No hash returned from hashDataAtPath');
       hash = reply;

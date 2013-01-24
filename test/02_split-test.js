@@ -1,10 +1,11 @@
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
+var assert = require('assert')
 var fs = require('fs');
 var async = require('async');
-
 var split = require('../lib/split.js');
+
 describe('02 Split Test', function() {
   it('should split multi-page pdf in single page pdf files', function(done) {
     this.timeout(10*1000);
@@ -26,7 +27,7 @@ describe('02 Split Test', function() {
           file.should.have.property('file_name');
           file.should.have.property('file_path');
           fs.exists(file.file_path, function (exists) {
-            exists.should.be.true;
+            assert.ok(exists, 'file does not exist like it should at path: ' + file.file_path);
             cb();
           });
         },
@@ -58,7 +59,7 @@ describe('02 Split Test', function() {
           file.should.have.property('file_name');
           file.should.have.property('file_path');
           fs.exists(file.file_path, function (exists) {
-            exists.should.be.true;
+            assert.ok(exists, 'file does not exist like it should at path: ' + file.file_path);
             cb();
           });
         },

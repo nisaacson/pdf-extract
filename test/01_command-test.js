@@ -1,4 +1,4 @@
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var should = require('should');
 var async = require('async');
 var exec = require('child_process').exec;

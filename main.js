@@ -13,7 +13,6 @@
  * @author Noah Isaacson
  * @date 2012-10-26
  */
-var inspect = require('eyes').inspector({maxLength:20000});
 var path = require('path');
 var temp = require('temp');
 var exec = require('child_process').exec;

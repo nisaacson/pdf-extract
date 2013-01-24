@@ -1,9 +1,10 @@
 /**
  * Tests extraction for a multi-page searchable pdf file
  */
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
+var assert = require('assert');
 var fs = require('fs');
 var async = require('async');
 
@@ -38,7 +39,7 @@ describe('04 Multipage searchable test', function() {
       data.single_page_pdf_file_paths.length.should.equal(8,'wrong number of single_page_pdf_file_paths returned');
       data.should.have.property('pdf_path');
       data.text_pages.length.should.equal(8, 'wrong number of pages after extracting from mulitpage searchable pdf with name: ' + file_name);
-      page_event_fired.should.be.true;
+      assert.ok(page_event_fired, 'never received a "page" event like we should have');
       for (var index in data.text_pages) {
         var page = data.text_pages[index];
         page.length.should.be.above(0, 'no text on page at index: ' + index);

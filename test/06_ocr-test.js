@@ -1,6 +1,7 @@
-var inspect = require('eyes').inspector({maxLength:20000});
+var inspect = require('eyespect').inspector({maxLength:20000});
 var path = require('path');
 var should = require('should');
+var assert = require('assert');
 var fs = require('fs');
 var ocr = require('../lib/ocr.js');
 
@@ -12,7 +13,7 @@ describe('06 OCR Test', function() {
     var relative_path = path.join('test_data',file_name);
     var tif_path = path.join(__dirname, relative_path);
     fs.exists(tif_path, function (exists) {
-      exists.should.be.true;
+      assert.ok(exists, 'tif file does not exist like it should at path: ' + tif_path);
       ocr(tif_path, function (err, extract) {
         should.not.exist(err);
         should.exist(extract);
@@ -29,7 +30,7 @@ describe('06 OCR Test', function() {
     var relative_path = path.join('test_data',file_name);
     var tif_path = path.join(__dirname, relative_path);
     fs.exists(tif_path, function (exists) {
-      exists.should.be.true;
+      assert.ok(exists, 'tif file does not exist like it should at path: ' + tif_path);
       var options = [
         '-psm 1',
         '-l dia',
