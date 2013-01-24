@@ -1,26 +1,26 @@
 {
   "name": "pdf-extract",
   "engines": "node",
-  "version": "0.0.17",
+  "version": "1.0.0",
   "private": false,
   "scripts": {
-    "test": "mocha --reporter spec"
+    "test": "node_modules/.bin/mocha --reporter spec"
   },
-
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/nisaacson/pdf-extract.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nisaacson/pdf-extract.git"
   },
-
   "main": "main.js",
   "folders": "lib",
   "dependencies": {
-    "eyes": "~0.1.8",
+    "eyespect": "~0.1.8",
     "async": "~0.1.22",
-    "mocha": "~1.6.0",
-    "should": "~1.2.0",
     "temp": "~0.4.0",
     "walk": "~2.2.1",
     "rimraf": "~2.0.2"
+  },
+  "devDependencies": {
+    "should": "~1.2.1",
+    "mocha": "~1.8.1"
   }
 }
