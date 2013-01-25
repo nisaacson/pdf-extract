@@ -9,7 +9,7 @@ var fs = require('fs');
 var async = require('async');
 
 var pdf = require('../main.js');
-var hashAtPath = require('../lib/hashAtPath.js');
+var pathHash = require('pathHash');
 
 var get_desired_text = function(text_file_name, callback) {
   var relative_path = path.join('test_data',text_file_name);
@@ -31,7 +31,7 @@ describe('07 Multipage raw test', function() {
 
   var hash;
   before(function(done) {
-    hashAtPath(pdf_path, function (err, reply) {
+    pathHash(pdf_path, function (err, reply) {
       should.not.exist(err, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. ' + err);
       should.exist(reply, 'error getting sha1 hash of pdf file at path: ' + pdf_path + '. No hash returned from hashDataAtPath');
       hash = reply;
