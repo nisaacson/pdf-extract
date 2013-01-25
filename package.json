@@ -1,7 +1,7 @@
 {
   "name": "pdf-extract",
   "engines": "node",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec"
@@ -17,7 +17,8 @@
     "async": "~0.1.22",
     "temp": "~0.4.0",
     "walk": "~2.2.1",
-    "rimraf": "~2.0.2"
+    "rimraf": "~2.0.2",
+    "pathhash": "~1.0.0"
   },
   "devDependencies": {
     "should": "~1.2.1",
