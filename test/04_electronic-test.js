@@ -44,6 +44,7 @@ describe('04 Multipage searchable test', function() {
         var page = data.text_pages[index];
         page.length.should.be.above(0, 'no text on page at index: ' + index);
       }
+
       done();
     });
     var page_event_fired = false;

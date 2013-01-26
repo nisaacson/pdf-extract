@@ -9,7 +9,7 @@ var fs = require('fs');
 var async = require('async');
 
 var pdf = require('../main.js');
-var pathHash = require('pathHash');
+var pathHash = require('pathhash');
 
 var get_desired_text = function(text_file_name, callback) {
   var relative_path = path.join('test_data',text_file_name);
