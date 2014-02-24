@@ -71,7 +71,7 @@ For the OCR to work, you need to have the tesseract-ocr binaries available on yo
 ``` bash
 cd <root of this module>
 cp "./share/eng.traineddata" "/usr/share/tesseract-ocr/tessdata/eng.traineddata"
-cp "./share/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alphanumeric"
+cp "./share/configs/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alphanumeric"
 ```
 
 
