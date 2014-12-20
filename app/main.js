@@ -39,7 +39,7 @@ var Electronic = require('./lib/electronic');
 module.exports = function(pdf_path, options, cb) {
   var err;
   var processor = new Raw();
-  if (!'pdf_path') {
+  if (!pdf_path) {
     err = 'you must supply a pdf path as the first parameter'
     return cb(err);
   }
