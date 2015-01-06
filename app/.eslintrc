@@ -1,0 +1,37 @@
+{
+    "env": {
+        "node": true
+    },
+
+    "rules": {
+        "no-use-before-define": false,
+        "default-case": false,
+        "camelcase": false,
+        "strict": false,
+        "semi": false,
+        "quotes": "single",
+        "func-style": [2, "declaration"],
+        "guard-for-in": 2,
+        "consistent-return": false,
+        "no-process-exit": false,
+        "no-floating-decimal": 2,
+        "no-nested-ternary": 2,
+        "no-undefined": 2,
+        "no-multi-spaces": fasle,
+        "no-underscore-dangle": false,
+        "no-unused-expressions": false,
+        "radix": 2,
+        "valid-jsdoc": [2, {
+            "prefer": {
+                "return": "returns"
+             }
+        }],
+        "wrap-iife": 2
+    },
+    "globals": {
+       "describe": true,
+       "before": true,
+       "after": true,
+       "it": true
+     }
+}

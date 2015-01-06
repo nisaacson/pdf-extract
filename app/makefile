@@ -1,5 +1,7 @@
 MOCHA=node_modules/.bin/mocha
-test:
+ESLINT?=node_modules/.bin/eslint
+
+test: lint
 	$(MOCHA) --reporter spec
 electronic:
 	$(MOCHA) $(shell find test -name "*electronic-test.js") --test --reporter spec
@@ -8,5 +10,11 @@ searchable:
 
 ocr:
 	$(MOCHA) $(shell find test -name "*ocr-test.js") --test --reporter spec
+
+
+lint:
+	@echo "\n-----> running eslint against repo"
+	@$(ESLINT) .
+	@echo "       lint passes"
 
 .PHONY: test
