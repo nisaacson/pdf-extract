@@ -4,9 +4,11 @@ Node PDF is a set of tools that takes in PDF files and converts them to usable f
 [![Build Status](https://travis-ci.org/nisaacson/pdf-extract.png)](https://travis-ci.org/nisaacson/pdf-extract)
 
 ## Installation
-=======
+
 To begin install the module.
+
 `npm install pdf-extract`
+
 After the library is installed you will need the following binaries accessible on your path to process pdfs.
 
 - pdftk
@@ -25,9 +27,10 @@ To begin on OSX, first make sure you have the homebrew package manager installed
 **pdftk** is not available in Homebrew. However a gui install is available here.
 [http://www.pdflabs.com/docs/install-pdftk/](http://www.pdflabs.com/docs/install-pdftk/)
 
-**pdftotext** is included as part on the xpdf utilities library. **xpdf** can be installed via homebrew
+**pdftotext** is included as part on the poppler utilities library. **poppler** can be installed via homebrew
+
 ``` bash
-brew install xpdf
+brew install poppler
 ```
 
 **ghostscript** can be install via homebrew
@@ -36,15 +39,15 @@ brew install gs
 ```
 
 **tesseract** can be installed via homebrew as well
+
 `brew install tesseract`
 
 After tesseract is installed you need to install the alphanumeric config and an updated trained data file
 ``` bash
 cd <root of this module>
-cp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.01/share/tessdata/eng.traineddata"
-cp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.01/share/tessdata/configs/alphanumeric"
+cp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.02.02_3/share/tessdata/eng.traineddata"
+cp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.02.02_3/share/tessdata/configs/alphanumeric"
 ```
-
 
 ### Ubuntu
 **pdftk** can be installed directly via apt-get
