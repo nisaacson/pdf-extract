@@ -27,7 +27,7 @@ To begin on OSX, first make sure you have the homebrew package manager installed
 **pdftk** is not available in Homebrew. However a gui install is available here.
 [http://www.pdflabs.com/docs/install-pdftk/](http://www.pdflabs.com/docs/install-pdftk/)
 
-**pdftotext** is included as part on the poppler utilities library. **poppler** can be installed via homebrew
+**pdftotext** is included as part of the **poppler** utilities library. **poppler** can be installed via homebrew
 
 ``` bash
 brew install poppler
