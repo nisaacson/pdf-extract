@@ -164,7 +164,7 @@ var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
 });
 processor.on('complete', function(data) {
   inspect(data.text_pages, 'extracted text pages');
-  callback(null, text_pages);
+  callback(null, data.text_pages);
 });
 processor.on('error', function(err) {
   inspect(err, 'error while extracting pages');
