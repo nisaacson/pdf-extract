@@ -46,6 +46,7 @@ After tesseract is installed you need to install the alphanumeric config and an 
 ``` bash
 cd <root of this module>
 cp "./share/eng.traineddata" "/usr/local/Cellar/tesseract/3.02.02_3/share/tessdata/eng.traineddata"
+cp "./share/dia.traineddata" "/usr/local/Cellar/tesseract/3.02.02_3/share/tessdata/dia.traineddata"
 cp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.02.02_3/share/tessdata/configs/alphanumeric"
 ```
 
