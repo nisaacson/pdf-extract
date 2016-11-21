@@ -116,7 +116,26 @@ make
 ```
 
 ### Windows
-Not yet tested. If you figure out how to use pdf-extract on windows send me a pull request and I will update the readme accordingly
+Important! You will have to add some variables to the PATH of your machine. You do this by right clicking your computer in file explorer, select Properties, select Advanced System Settings, Environment Variables. You can then add **the folder that contains the executables** to the path variable.
+
+**pdftk** can be installed using the PDFtk Server installer found here: https://www.pdflabs.com/tools/pdftk-server/
+It should autmatically add itself to the PATH, if not, the default install location is *"C:\Program Files (x86)\PDFtk Server\bin\"*
+
+**pdftotext** can be installed using the recompiled poppler utils for windows, which have been collected and bundled here: http://manifestwebdesign.com/2013/01/09/xpdf-and-poppler-utils-on-windows/
+Unpack these in a folder, (example: *"C:\poppler-utils"*) and add this to the PATH.
+
+**ghostscript** for Windows can be found at: http://www.ghostscript.com/download/gsdnld.html
+Make sure you download the General Public License and the correct version (32/64bit).
+Install it and go to the installation folder (default: *"C:\Program Files\gs\gs9.19"*) and go into the **bin** folder.
+Rename the *gswin64c* to *gs*, and add the bin folder to your PATH.
+
+**tesseract** can be build, but you can also download an older version which seems to work fine. Downloads at: https://sourceforge.net/projects/tesseract-ocr-alt/files/
+Version tested is *tesseract-ocr-setup-3.02.02.exe*, the default install location is *"C:\Program Files (x86)\Tesseract-OCR"* and is also added to the PATH.
+Note, this is only when you've checked that it will install for everyone on the machine.
+
+Everything should work after all this! If not, try restarting to make sure the PATH variables are correctly used. 
+**This setup was tested on a Windows 10 Pro N 64bit machine.**
+
 
 ## Usage
 =======
