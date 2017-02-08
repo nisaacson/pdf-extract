@@ -1,7 +1,7 @@
 {
   "name": "pdf-extract",
   "engines": "node",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "private": false,
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter spec"
