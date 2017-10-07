@@ -11,8 +11,8 @@ To begin install the module.
 
 After the library is installed you will need the following binaries accessible on your path to process pdfs.
 
-- pdftk
-    - pdftk splits multi-page pdf into single pages.
+- pdfseparate
+    - pdfseparate splits multi-page pdf into single pages.
 - pdftotext
     - pdftotext is used to extract text out of searchable pdf documents
 - ghostscript
@@ -24,10 +24,7 @@ After the library is installed you will need the following binaries accessible o
 ### OSX
 To begin on OSX, first make sure you have the homebrew package manager installed.
 
-**pdftk** is not available in Homebrew. However a gui install is available here.
-[http://www.pdflabs.com/docs/install-pdftk/](http://www.pdflabs.com/docs/install-pdftk/)
-
-**pdftotext** is included as part of the **poppler** utilities library. **poppler** can be installed via homebrew
+**pdftotext** and **pdfseparate** are included as part of the **poppler** utilities library. **poppler** can be installed via homebrew
 
 ``` bash
 brew install poppler
@@ -51,12 +48,8 @@ cp "./share/configs/alphanumeric" "/usr/local/Cellar/tesseract/3.02.02_3/share/t
 ```
 
 ### Ubuntu
-**pdftk** can be installed directly via apt-get
-```bash
-apt-get install pdftk
-```
 
-**pdftotext** is included in the **poppler-utils** library. To installer poppler-utils execute
+**pdftotext** and **pdfseparate** are included in the **poppler-utils** library. To installer poppler-utils execute
 ``` bash
 apt-get install poppler-utils
 ```
@@ -80,12 +73,7 @@ cp "./share/configs/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alp
 
 
 ### SmartOS
-**pdftk** can be installed directly via apt-get
-```bash
-apt-get install pdftk
-```
-
-**pdftotext** is included in the **poppler-utils** library. To installer poppler-utils execute
+**pdftotext** and **pdfseparate** are included in the **poppler-utils** library. To installer poppler-utils execute
 ``` bash
 apt-get install poppler-utils
 ```
@@ -118,10 +106,7 @@ make
 ### Windows
 Important! You will have to add some variables to the PATH of your machine. You do this by right clicking your computer in file explorer, select Properties, select Advanced System Settings, Environment Variables. You can then add **the folder that contains the executables** to the path variable.
 
-**pdftk** can be installed using the PDFtk Server installer found here: https://www.pdflabs.com/tools/pdftk-server/
-It should autmatically add itself to the PATH, if not, the default install location is *"C:\Program Files (x86)\PDFtk Server\bin\"*
-
-**pdftotext** can be installed using the recompiled poppler utils for windows, which have been collected and bundled here: http://manifestwebdesign.com/2013/01/09/xpdf-and-poppler-utils-on-windows/
+**pdftotext** and **pdfseparate** can be installed using the recompiled poppler utils for windows, which have been collected and bundled here: http://manifestwebdesign.com/2013/01/09/xpdf-and-poppler-utils-on-windows/
 Unpack these in a folder, (example: *"C:\poppler-utils"*) and add this to the PATH.
 
 **ghostscript** for Windows can be found at: http://www.ghostscript.com/download/gsdnld.html
@@ -133,7 +118,7 @@ Rename the *gswin64c* to *gs*, and add the bin folder to your PATH.
 Version tested is *tesseract-ocr-setup-3.02.02.exe*, the default install location is *"C:\Program Files (x86)\Tesseract-OCR"* and is also added to the PATH.
 Note, this is only when you've checked that it will install for everyone on the machine.
 
-Everything should work after all this! If not, try restarting to make sure the PATH variables are correctly used. 
+Everything should work after all this! If not, try restarting to make sure the PATH variables are correctly used.
 **This setup was tested on a Windows 10 Pro N 64bit machine.**
 
 
