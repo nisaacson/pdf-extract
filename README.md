@@ -175,7 +175,8 @@ var pdf_extract = require('pdf-extract');
 var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
 var options = {
   type: 'text',  // extract the actual text in the pdf file
-  enc: 'UTF-8'   // optional, encoding to use for the text output
+  enc: 'UTF-8',  // optional, encoding to use for the text output
+  mode: 'layout' // optional, mode to use when reading the pdf 
 }
 var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
   if (err) {
@@ -200,7 +201,8 @@ When the system performs extracts text from a multi-page pdf, it first splits th
 ``` javascript
 var options = {
   type: 'ocr' // (required), perform ocr to get the text within the scanned image
-  enc: 'UTF-8' // optional, only applies to 'text' type 
+  enc: 'UTF-8' // optional, only applies to 'text' type
+  mode: 'layout' // optional, only applies to 'text' type. Available modes are 'layout', 'simple', 'table' or 'lineprinter'. Default is 'layout'
   clean: false // keep the single page pdfs created during the ocr process
   ocr_flags: [
     '-psm 1',       // automatically detect page orientation
