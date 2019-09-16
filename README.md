@@ -40,7 +40,9 @@ brew install gs
 
 **tesseract** can be installed via homebrew as well
 
-`brew install tesseract`
+``` bash
+brew install tesseract
+```
 
 After tesseract is installed you need to install the alphanumeric config and an updated trained data file
 ``` bash
@@ -81,7 +83,7 @@ cp "./share/configs/alphanumeric" "/usr/share/tesseract-ocr/tessdata/configs/alp
 
 ### SmartOS
 **pdftk** can be installed directly via apt-get
-```bash
+``` bash
 apt-get install pdftk
 ```
 
@@ -133,36 +135,30 @@ Rename the *gswin64c* to *gs*, and add the bin folder to your PATH.
 Version tested is *tesseract-ocr-setup-3.02.02.exe*, the default install location is *"C:\Program Files (x86)\Tesseract-OCR"* and is also added to the PATH.
 Note, this is only when you've checked that it will install for everyone on the machine.
 
-Everything should work after all this! If not, try restarting to make sure the PATH variables are correctly used. 
+Everything should work after all this! If not, try restarting to make sure the PATH variables are correctly used.
 **This setup was tested on a Windows 10 Pro N 64bit machine.**
 
 
 ## Usage
-=======
 
 ### OCR Extract from scanned image
 Extract from a pdf file which contains a scanned image and no searchable text
 ``` javascript
-var inspect = require('eyes').inspector({maxLength:20000});
-var pdf_extract = require('pdf-extract');
-var absolute_path_to_pdf = '~/Downloads/sample.pdf'
-var options = {
-  type: 'ocr' // perform ocr to get the text within the scanned image
-}
+const path = require("path")
+const pdf_extract = require('pdf-extract')
 
-var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
-  if (err) {
-    return callback(err);
-  }
-});
-processor.on('complete', function(data) {
-  inspect(data.text_pages, 'extracted text pages');
-  callback(null, text_pages);
-});
-processor.on('error', function(err) {
-  inspect(err, 'error while extracting pages');
-  return callback(err);
-});
+console.log("Usage: node thisfile.js the/path/tothe.pdf")
+const absolute_path_to_pdf = path.resolve(process.argv[2])
+if (absolute_path_to_pdf.includes(" ")) throw new Error("will fail for paths w spaces like "+absolute_path_to_pdf)
+
+const options = {
+  type: 'ocr', // perform ocr to get the text within the scanned image
+  ocr_flags: ['--psm 1'], // automatically detect page orientation
+}
+const processor = pdf_extract(absolute_path_to_pdf, options, ()=>console.log("Starting…"))
+processor.on('complete', data => callback(null, data))
+processor.on('error', callback)
+function callback (error, data) { error ? console.error(error) : console.log(data.text_pages[0]) }
 ```
 
 
@@ -170,28 +166,23 @@ processor.on('error', function(err) {
 ### Text extract from searchable pdf
 Extract from a pdf file which contains actual searchable text
 ``` javascript
-var inspect = require('eyes').inspector({maxLength:20000});
-var pdf_extract = require('pdf-extract');
-var absolute_path_to_pdf = '~/Downloads/electronic.pdf'
-var options = {
-  type: 'text',  // extract the actual text in the pdf file
-  enc: 'UTF-8',  // optional, encoding to use for the text output
-  mode: 'layout' // optional, mode to use when reading the pdf 
-}
-var processor = pdf_extract(absolute_path_to_pdf, options, function(err) {
-  if (err) {
-    return callback(err);
-  }
-});
-processor.on('complete', function(data) {
-  inspect(data.text_pages, 'extracted text pages');
-  callback(null, data.text_pages);
-});
-processor.on('error', function(err) {
-  inspect(err, 'error while extracting pages');
-  return callback(err);
-});
+const path = require("path")
+const pdf_extract = require('./main.js')
 
+console.log("Usage: node thisfile.js the/path/tothe.pdf")
+const absolute_path_to_pdf = path.resolve(process.argv[2])
+if (absolute_path_to_pdf.includes(" ")) throw new Error("will fail for paths w spaces like "+absolute_path_to_pdf)
+
+const options = {
+  type: 'text', // extract searchable text from PDF
+  ocr_flags: ['--psm 1'], // automatically detect page orientation
+  enc: 'UTF-8',  // optional, encoding to use for the text output
+  mode: 'layout' // optional, mode to use when reading the pdf
+}
+const processor = pdf_extract(absolute_path_to_pdf, options, ()=>console.log("Starting…"))
+processor.on('complete', data => callback(null, data))
+processor.on('error', callback)
+function callback (error, data) { error ? console.error(error) : console.log(data.text_pages[0]) }
 ```
 #### Options
 At a minimum you must specific the type of pdf extract you wish to perform
@@ -259,7 +250,6 @@ var data = {
 To avoid spamming process.stdout, log events are emitted instead.
 
 ## Tests
-=======
 To test that your system satisfies the needed dependencies and that module is functioning correctly execute the command in the pdf-extract module folder
 ```
 cd <project_root>/node_modules/pdf-extract
