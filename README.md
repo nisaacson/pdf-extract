@@ -123,7 +123,7 @@ Important! You will have to add some variables to the PATH of your machine. You 
 **pdftk** can be installed using the PDFtk Server installer found here: https://www.pdflabs.com/tools/pdftk-server/
 It should autmatically add itself to the PATH, if not, the default install location is *"C:\Program Files (x86)\PDFtk Server\bin\"*
 
-**pdftotext** can be installed using the recompiled poppler utils for windows, which have been collected and bundled here: http://manifestwebdesign.com/2013/01/09/xpdf-and-poppler-utils-on-windows/
+**pdftotext** can be installed using the recompiled poppler utils for windows, which have been collected and bundled here: http://blog.alivate.com.au/poppler-windows/
 Unpack these in a folder, (example: *"C:\poppler-utils"*) and add this to the PATH.
 
 **ghostscript** for Windows can be found at: http://www.ghostscript.com/download/gsdnld.html
