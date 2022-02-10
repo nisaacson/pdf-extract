@@ -118,6 +118,17 @@ make
 ```
 
 ### Windows
+
+#### Using Chocolatey
+
+Install [Chocolatey](https://chocolatey.org) and run:
+
+```sh
+choco install pdftk xpdf-utils ghostscript tesseract
+```
+
+#### Manually
+
 Important! You will have to add some variables to the PATH of your machine. You do this by right clicking your computer in file explorer, select Properties, select Advanced System Settings, Environment Variables. You can then add **the folder that contains the executables** to the path variable.
 
 **pdftk** can be installed using the PDFtk Server installer found here: https://www.pdflabs.com/tools/pdftk-server/
