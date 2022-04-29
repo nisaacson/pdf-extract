@@ -14,7 +14,7 @@
   "folders": "lib",
   "dependencies": {
     "eyespect": "~0.1.8",
-    "async": "~0.1.22",
+    "async": "~2.6.4",
     "temp": "~0.8.3",
     "walk": "~2.2.1",
     "rimraf": "~2.0.2",
