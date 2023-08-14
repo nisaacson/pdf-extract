@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nisaacson/pdf-extract.git"
+    "url": "github:indigov-us/pdf-extract"
   },
   "main": "main.js",
   "folders": "lib",
